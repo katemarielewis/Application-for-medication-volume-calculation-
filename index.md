@@ -1,0 +1,70 @@
+---
+title       : Application to calculate medication volume for animals to be administered by wildlife keepers
+subtitle    : Shiny application
+author      : Kate Lewis
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Use of this app:
+
+This application is designed to be used by staff of a wildlife park or other animal keepers to ensure that the correct volume of medication is administered to animals when they need to be treated. Although the volume calculation is fairly simple, it is easy to get confused by the many units that need to be taken into account. In addition, even people experienced with performing these types of calculations often want to double check their calculations in order to be sure of the correct result.
+
+
+--- .class #id 
+
+## Inputs for the app:
+
+There are three fields that require input in this application:
+
+1. Animal weight measured in kilograms
+
+2. Medicine dosage measured in miligrams per kilogram
+
+3. Concentration of medicine in miligrams per mililitre
+
+Once the user has input their data into these three fields the volume that should be given to the animal is calculated and returned in mililitres
+
+--- .class #id 
+
+## Formula for medicine volume:
+
+The following function is used to calculate volume:
+
+
+```r
+drugconc<-function(animalweight, dose, conc){
+  volume<-dose*animalweight/conc
+  volume
+}
+```
+
+--- .class #id 
+
+## Example calculation:
+
+If a user enters in the following values:
+
+1. Animal weight= 6 kg
+
+2. dose= 1.34 mg/kg
+
+3. concentration= 4.5 mg/ml
+
+then the code will run as follows:
+
+```r
+volume<-drugconc(6, 1.34, 4.5)
+volume
+```
+
+```
+## [1] 1.787
+```
+
+Therefore the user can quickly and easily be sure of the correct volume needed. This application will give the user confidence that the animals in their care will not receive too much or too little medicine. 
