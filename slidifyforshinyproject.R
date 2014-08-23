@@ -1,8 +1,0 @@
-library(slidify)
-library(devtools)
-setwd("C:/Users/kate/Documents/datascience/coursera/shiny/shinyproject")
-author("shiny_presentation")
-library(knitr)
-slidify("shiny_presentation")
-browseURL("shiny_presentation")
-publish_github(user, repo)
